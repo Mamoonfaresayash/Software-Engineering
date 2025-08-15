@@ -1,0 +1,68 @@
+  
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة الطلاب</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <center> <h1>قائمة الطلاب</h1></center>
+
+    <table>
+        <thead>
+            <tr>
+                <th>الاسم الأول</th>
+                <th>الاسم الأخير</th>
+                <th>العمر</th>
+                <th>الجنس</th>
+                <th>المستوى</th>
+                <th>مسجل</th>
+                
+            </tr>
+        </thead>
+<tbody>
+    {% for student in students %}
+        {% if student.Gender == "ذكر" %}
+        <tr style="background-color: #d0e8ff;"> <!-- لون خلفية للذكور -->
+            <td>{{ student.FirstName }}</td>
+            <td>{{ student.LastName }}</td>
+            <td>{{ student.Age }}</td>
+            <td>{{ student.Gender }}</td>
+            <td>{{ student.Level }}</td>
+            <td>{{ student.Status}}</td>
+
+        </tr>
+        {% else %}
+        <tr>
+            <td>{{ student.FirstName }}</td>
+            <td>{{ student.LastName }}</td>
+            <td>{{ student.Age }}</td>
+            <td>{{ student.Gender }}</td>
+            <td>{{ student.Level }}</td>
+            <td>{{ student.Status }}</td>
+            
+        </tr>
+        {% endif %}
+    {% endfor %}
+    <tfoot><a href="{% url 'hom' %}">العودة إلى الصفحة الرئيسية</a>
+</tfoot>
+</tbody>
+
+    
+</body>
+</html>

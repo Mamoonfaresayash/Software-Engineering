@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management</title>
+</head>
+<body>
+
+<h1>Hello {{ name|add:" Aghe"|upper }}</h1>
+<p>Length of your name is: {{ name|length }}</p>
+<p>Your mark is: {{ mark }}</p>
+
+<h2>Your marks in each subject:</h2>
+<ul>
+    {% for subject, score in eachsub.items %}
+        <li>{{ subject|capfirst }}: {{ score }}</li>
+    {% endfor %}
+</ul>
+
+<p>Today is: {{ today|date:"Y-m-d" }}</p>
+
+<a href="{% url 'hom' %}">Back</a>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+</head>
+<body>
+    
+<h1>{{ name }}</h1>
+<h1>{{ mark }}</h1>
+<h1>Total is: {{ total }}</h1>
+
+{% for x, y in eachsub.items %}
+    <ul>
+        <li>{{ x }}: {{ y }}</li>
+    </ul>
+{% endfor %}
+
+{% if total > 250 %}
+    <p>ممتاز</p>
+{% elif 200 < total <= 250 %}
+    <p>جيد جدًا</p>
+{% elif 100 < total <= 200 %}
+    <p>جيد</p>
+{% else %}
+    <p>ضعيف</p>
+{% endif %}
+
+<a href="{% url 'hom' %}">العودة إلى الصفحة الرئيسية</a>
+
+</body>
+</html>
